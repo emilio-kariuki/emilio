@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import "package:emilio/accounts/social.dart";
 import 'package:flutter_svg/flutter_svg.dart';
+import "package:emilio/accounts/more.dart";
 
 class Notifications extends StatefulWidget {
   Notifications({Key? key}) : super(key: key);
@@ -64,7 +65,8 @@ class _NotificationsState extends State<Notifications> {
                       child: FlatButton.icon(
                           onPressed: () {
                             setState(() {
-                              Navigator.pop(context);
+                              Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context)=> More()));
                             });
                           },
                           shape: RoundedRectangleBorder(
@@ -75,7 +77,7 @@ class _NotificationsState extends State<Notifications> {
                             size: 31,
                             color: Colors.black,
                           ),
-                          label: Text("")),
+                          label: Text("About")),
                     ),
                   ),
                 ],
