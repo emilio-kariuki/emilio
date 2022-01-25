@@ -94,34 +94,27 @@ class _NotificationsState extends State<Notifications> {
               ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                    child: Card(
-                      elevation: 10,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      color: Colors.blue[900],
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            CircleAvatar(
-                              backgroundImage: AssetImage('assets/eco.jpeg'),
-                              radius: 40,
-                              backgroundColor: Colors.green[900],
-                            ),
-                            SizedBox(width: 20,),
-                            Icon(Icons.forward, size: 30, color: Colors.white),
-                            SizedBox(width: 20,),
-                            CircleAvatar(
-                              backgroundImage: AssetImage('assets/mail.png'),
-                              radius: 40,
-                              backgroundColor: Colors.green[900],
-                            )
-                          ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          CircleAvatar(
+                            backgroundImage: AssetImage('assets/eco.jpeg'),
+                            radius: 40,
+                            backgroundColor: Colors.green[900],
                           ),
-                      ),
+                          SizedBox(width: 20,),
+                          Icon(Icons.forward, size: 50, color: Colors.black),
+                          SizedBox(width: 20,),
+                          CircleAvatar(
+                            backgroundImage: AssetImage('assets/mail.png'),
+                            radius: 40,
+                            backgroundColor: Colors.green[900],
+                          )
+                        ],
+                        ),
                     ),
                   ),
                     SizedBox(height: 50),
@@ -132,13 +125,13 @@ class _NotificationsState extends State<Notifications> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
-                        icon: Icon(Icons.person,size:30,color: Colors.white),
+                        icon: Icon(Icons.person,size:30,color: Colors.black),
                         filled: true,
                         hintStyle: TextStyle(color: Colors.grey[800]),
                         focusColor: Colors.red,
                         hintText: "Username",
                         fillColor: Colors.grey[200]),
-                  ),
+                                      ),
                     ),
                     SizedBox(height: 10),
                     Padding(
@@ -148,7 +141,7 @@ class _NotificationsState extends State<Notifications> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
-                        icon: Icon(Icons.mail,size:30,color: Colors.white),
+                        icon: Icon(Icons.mail,size:30,color: Colors.black),
                         filled: true,
                         hintStyle: TextStyle(color: Colors.grey[800]),
                         hoverColor: Colors.red,
@@ -221,7 +214,16 @@ class _NotificationsState extends State<Notifications> {
                     ),
                   ],
                 ),
-                Text("The following has been created by Emilio")
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      Text("The following has been created by Emilio",style:GoogleFonts.robotoCondensed(color: Colors.white)),
+                    ],
+                  ),
+                )
         
             ],
           ),
