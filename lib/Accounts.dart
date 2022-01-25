@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:emilio/accounts/help.dart';
+import 'package:emilio/accounts/Notifications.dart';
 
 class Accounts extends StatefulWidget {
   Accounts({Key? key}) : super(key: key);
@@ -80,8 +81,14 @@ class _AccountsState extends State<Accounts> {
                         borderRadius: BorderRadius.circular(20)),
                     elevation: 4,
                     child: ListTile(
-                      leading: Icon(Icons.person, color: Colors.green[800]),
-                      title: Text("Accounts",
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => Notifications())
+                        );
+                      },
+                      leading:
+                          Icon(Icons.notifications, color: Colors.green[800]),
+                      title: Text("Notifications",
                           style: GoogleFonts.roboto(fontSize: 20)),
                     ),
                   ),
@@ -96,7 +103,8 @@ class _AccountsState extends State<Accounts> {
                     child: ListTile(
                       onTap: () {
                         setState(() {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Help()));
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Help()));
                         });
                       },
                       leading: Icon(Icons.help_center_rounded,
