@@ -18,7 +18,7 @@ class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.blueGrey[800],
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

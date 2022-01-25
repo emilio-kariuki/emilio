@@ -20,7 +20,7 @@ class _NaviState extends State<Navi> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Ecoville"),
-        backgroundColor: Colors.green[800],
+        backgroundColor: Colors.blueGrey[800],
       ),
       body: Center(
         child: PageView(
@@ -41,7 +41,7 @@ class _NaviState extends State<Navi> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(3, 0, 3, 0),
         child: Card(
-            color: Colors.green[800],
+            color: Colors.blueGrey[800],
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
@@ -51,7 +51,7 @@ class _NaviState extends State<Navi> {
                 selectedItemColor: Colors.white,
                 unselectedItemColor: Colors.black,
                 type: BottomNavigationBarType.fixed,
-                backgroundColor: Colors.green[800],
+                backgroundColor: Colors.blueGrey[800],
                 currentIndex: selectedIndex,
                 onTap: (newIndex) {
                   setState(() {

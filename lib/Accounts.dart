@@ -16,7 +16,7 @@ class _AccountsState extends State<Accounts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[800],
+      backgroundColor: Colors.blueGrey[800],
       body: Column(
         // ignore: prefer_const_literals_to_create_immutables
         children: [
