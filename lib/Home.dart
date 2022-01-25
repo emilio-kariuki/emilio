@@ -1,5 +1,7 @@
 // ignore_for_file: unused_import
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
@@ -24,11 +26,14 @@ class HomeState extends State<Home> {
   var geoLocator = Geolocator();
 
   void locatePosition() async {
+    // ignore: unused_local_variable
+    LocationPermission permission = await Geolocator.requestPermission();
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     currentPosition = position;
 
     LatLng ltPosition = LatLng(position.latitude, position.longitude);
+    print(ltPosition);
 
     CameraPosition cameraPosition =
         CameraPosition(target: ltPosition, zoom: 15);
@@ -52,6 +57,11 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GoogleMap(
+        gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>[
+          new Factory<OneSequenceGestureRecognizer>(
+            () => new EagerGestureRecognizer(),
+          ),
+        ].toSet(),
         mapType: MapType.hybrid,
         initialCameraPosition: _kGooglePlex,
         myLocationButtonEnabled: true,
@@ -61,9 +71,10 @@ class HomeState extends State<Home> {
           _controller.complete(controller);
           locatePosition();
         },
+        //  is a gesture recognizer that eagerly claims victory in all gesture arenas
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToTheLake,
+        onPressed: locatePosition,
         label: Text('Position!'),
         icon: Icon(Icons.maps_home_work_sharp),
       ),
@@ -75,5 +86,4 @@ class HomeState extends State<Home> {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(product));
   }
-
 }

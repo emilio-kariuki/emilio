@@ -13,27 +13,30 @@ class Navi extends StatefulWidget {
 
 class _NaviState extends State<Navi> {
   int selectedIndex = 0;
-  List<Widget> pages = [
-    Home(),
-    Item(),
-    Post(),
-    Accounts(),
-  ];
-  void onItemTap(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
+  PageController controller = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
-        backgroundColor: Colors.blue,
+        title: Text("Ecoville"),
+        backgroundColor: Colors.green[800],
       ),
       body: Center(
-        child: pages.elementAt(selectedIndex),
+        child: PageView(
+          controller: controller,
+          onPageChanged: (newIndex) {
+            setState(() {
+              selectedIndex = newIndex;
+            });
+          },
+          children: [
+            Home(),
+            Item(),
+            Post(),
+            Accounts(),
+          ],
+        ),
       ),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(3, 0, 3, 0),
@@ -50,7 +53,13 @@ class _NaviState extends State<Navi> {
                 type: BottomNavigationBarType.fixed,
                 backgroundColor: Colors.green[800],
                 currentIndex: selectedIndex,
-                onTap: onItemTap,
+                onTap: (newIndex) {
+                  setState(() {
+                    controller.animateToPage(newIndex,
+                        duration: Duration(microseconds: 500),
+                        curve: Curves.ease);
+                  });
+                },
                 // ignore: prefer_const_literals_to_create_immutables
                 items: [
                   BottomNavigationBarItem(
@@ -59,10 +68,7 @@ class _NaviState extends State<Navi> {
                       ),
                       label: "Home"),
                   BottomNavigationBarItem(
-                      icon: Icon(
-                        Icons.layers
-                      ),
-                      label: "Item"),
+                      icon: Icon(Icons.layers), label: "Item"),
                   BottomNavigationBarItem(
                       icon: Icon(Icons.upload), label: "Post"),
                   // BottomNavigationBarItem(icon: Icon(Icons.layers), label: "Item"),
