@@ -11,6 +11,7 @@ class _ItemState extends State<Item> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[800],
       body: Center(child: Text("Emilio post"))
     );
   }

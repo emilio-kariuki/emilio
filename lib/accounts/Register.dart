@@ -6,17 +6,19 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import "package:emilio/accounts/social.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import "package:emilio/accounts/more.dart";
+import "package:emilio/accounts/login.dart";
 
-class Notifications extends StatefulWidget {
-  Notifications({Key? key}) : super(key: key);
+class Register extends StatefulWidget {
+  Register({Key? key}) : super(key: key);
 
   @override
-  State<Notifications> createState() => _NotificationsState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _NotificationsState extends State<Notifications> {
+class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.blueGrey[800],
       body: SafeArea(
@@ -66,18 +68,18 @@ class _NotificationsState extends State<Notifications> {
                           onPressed: () {
                             setState(() {
                               Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (context)=> More()));
+                              .pushReplacement(MaterialPageRoute(builder: (context)=> Login()));
                             });
                           },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
                           icon: Icon(
-                            Icons.help,
+                            Icons.login,
                             size: 31,
                             color: Colors.black,
                           ),
-                          label: Text("About")),
+                          label: Text("Login")),
                     ),
                   ),
                 ],
@@ -94,40 +96,21 @@ class _NotificationsState extends State<Notifications> {
                   ),
                 ],
               ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          CircleAvatar(
-                            backgroundImage: AssetImage('assets/eco.jpeg'),
-                            radius: 40,
-                            backgroundColor: Colors.green[900],
-                          ),
-                          SizedBox(width: 20,),
-                          Icon(Icons.forward, size: 50, color: Colors.black),
-                          SizedBox(width: 20,),
-                          CircleAvatar(
-                            backgroundImage: AssetImage('assets/mail.png'),
-                            radius: 40,
-                            backgroundColor: Colors.green[900],
-                          )
-                        ],
-                        ),
-                    ),
-                  ),
+              Center(
+                child: SvgPicture.asset(
+                  "assets/svg/signup.svg",
+                  height: size.height * 0.23,
+                ),
+              ),
                     SizedBox(height: 50),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 1, 16, 0),
+                      padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                       child: TextField(
                         decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
-                        icon: Icon(Icons.person,size:30,color: Colors.black),
+                        // icon: Icon(Icons.person,size:30,color: Colors.black),
                         filled: true,
                         hintStyle: TextStyle(color: Colors.grey[800]),
                         focusColor: Colors.red,
@@ -137,13 +120,13 @@ class _NotificationsState extends State<Notifications> {
                     ),
                     SizedBox(height: 10),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 1, 16, 0),
+                      padding: const EdgeInsets.fromLTRB(30, 1, 30, 0),
                       child: TextField(
                         decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
-                        icon: Icon(Icons.mail,size:30,color: Colors.black),
+                        // icon: Icon(Icons.mail,size:30,color: Colors.black),
                         filled: true,
                         hintStyle: TextStyle(color: Colors.grey[800]),
                         hoverColor: Colors.red,
@@ -151,7 +134,7 @@ class _NotificationsState extends State<Notifications> {
                         fillColor: Colors.grey[200]),
                   ),
                     ),
-                    SizedBox(height: 50),
+                    SizedBox(height: 40),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [Card(
@@ -161,7 +144,7 @@ class _NotificationsState extends State<Notifications> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          child: FlatButton.icon(
+                          child: FlatButton(
                               onPressed: () {
                                 // setState(() {
                                 //   Navigator.pop(context);
@@ -170,12 +153,15 @@ class _NotificationsState extends State<Notifications> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              icon: Icon(
-                                Icons.notifications,
-                                size: 31,
-                                color: Colors.black,
-                              ),
-                              label: Text("Get Notifications",style: GoogleFonts.robotoCondensed(fontSize: 15,color: Colors.black))),
+                              // icon: Icon(
+                              //   Icons.create,
+                              //   size: 24,
+                              //   color: Colors.black,
+                              // ),
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                child: Text("Sign Up",style: GoogleFonts.robotoCondensed(fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold)),
+                              )),
                         ),
                       ]
                  ),
@@ -217,7 +203,7 @@ class _NotificationsState extends State<Notifications> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     // ignore: prefer_const_literals_to_create_immutables

@@ -17,6 +17,7 @@ class _PostState extends State<Post> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[800],
         body: Center(
       child: Card(
           shape:

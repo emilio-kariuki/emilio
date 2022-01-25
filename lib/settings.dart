@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:emilio/accounts/help.dart';
-import 'package:emilio/accounts/Notifications.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:emilio/accounts/Register.dart';
+import 'package:emilio/accounts/profile.dart';
 
 class Accounts extends StatefulWidget {
   Accounts({Key? key}) : super(key: key);
@@ -23,58 +25,37 @@ class _AccountsState extends State<Accounts> {
           SizedBox(
             height: 5,
           ),
-          Text("Profile",
+          Text("Settings",
               style: GoogleFonts.roboto(
                 fontSize: 20,
                 color: Colors.white,
                 letterSpacing: 0.2,
               )),
-          SizedBox(height: 5),
+          SizedBox(height: 15),
           Center(
             child: CircleAvatar(
               backgroundImage: AssetImage('assets/profile.jpg'),
-              radius: 40,
+              radius: 50,
             ),
           ),
-          Divider(
-            thickness: 1,
-            height: 50,
-            color: Colors.white,
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                    margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                    child: Divider(
+                      color: Colors.white,
+                      height: 70,
+                    )),
+              ),
+            ],
           ),
           Expanded(
             child: ListView(
               // ignore: prefer_const_literals_to_create_immutables
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Card(
-                    color: Colors.grey[300],
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    elevation: 4,
-                    child: ListTile(
-                      leading: Icon(Icons.person, color: Colors.green[800]),
-                      title: Text("Acsounts",
-                          style: GoogleFonts.roboto(fontSize: 20)),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Card(
-                    color: Colors.grey[300],
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    elevation: 4,
-                    child: ListTile(
-                      leading: Icon(Icons.person, color: Colors.green[800]),
-                      title: Text("Acsounts",
-                          style: GoogleFonts.roboto(fontSize: 20)),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
+                  padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
                   child: Card(
                     color: Colors.grey[300],
                     shape: RoundedRectangleBorder(
@@ -83,18 +64,49 @@ class _AccountsState extends State<Accounts> {
                     child: ListTile(
                       onTap: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => Notifications())
-                        );
+                            MaterialPageRoute(builder: (context) => Profile()));
                       },
-                      leading:
-                          Icon(Icons.notifications, color: Colors.green[800]),
-                      title: Text("Notifications",
+                      leading: Icon(Icons.person, color: Colors.blueGrey[800]),
+                      title: Text("Profile",
                           style: GoogleFonts.roboto(fontSize: 20)),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(4.0),
+                  padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+                  child: Card(
+                    color: Colors.grey[300],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    elevation: 4,
+                    child: ListTile(
+                      leading: Icon(Icons.person, color: Colors.blueGrey[800]),
+                      title: Text("Acsounts",
+                          style: GoogleFonts.roboto(fontSize: 20)),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+                  child: Card(
+                    color: Colors.grey[300],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    elevation: 4,
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Register()));
+                      },
+                      leading:
+                          Icon(Icons.account_box, color: Colors.blueGrey[800]),
+                      title: Text("Account",
+                          style: GoogleFonts.roboto(fontSize: 20)),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
                   child: Card(
                     color: Colors.grey[300],
                     shape: RoundedRectangleBorder(
@@ -108,21 +120,21 @@ class _AccountsState extends State<Accounts> {
                         });
                       },
                       leading: Icon(Icons.help_center_rounded,
-                          color: Colors.green[800]),
+                          color: Colors.blueGrey[800]),
                       title: Text("Help Center",
                           style: GoogleFonts.roboto(fontSize: 20)),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(4.0),
+                  padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
                   child: Card(
                     color: Colors.grey[300],
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     elevation: 4,
                     child: ListTile(
-                      leading: Icon(Icons.person, color: Colors.green[800]),
+                      leading: Icon(Icons.person, color: Colors.blueGrey[800]),
                       title: Text(
                         "Log Out",
                         style: GoogleFonts.roboto(fontSize: 20),
@@ -130,18 +142,32 @@ class _AccountsState extends State<Accounts> {
                     ),
                   ),
                 ),
-                Divider(
-                  thickness: 1,
-                  height: 50,
-                  color: Colors.white,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                          margin:
+                              const EdgeInsets.only(left: 15.0, right: 10.0),
+                          child: Divider(
+                            color: Colors.white,
+                            height: 30,
+                          )),
+                    ),
+                  ],
                 ),
                 Center(
                     child: Column(
                   children: [
+                    Center(
+                      child: SvgPicture.asset(
+                        "assets/svg/login.svg",
+                        height: 70,
+                      ),
+                    ),
                     Text("Version",
                         style: GoogleFonts.robotoCondensed(
                             fontSize: 27, color: Colors.white)),
-                    SizedBox(height: 10),
+                    SizedBox(height: 2),
                     Text("138.21:1001",
                         style: GoogleFonts.robotoCondensed(
                             fontSize: 13, color: Colors.white)),
