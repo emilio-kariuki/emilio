@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import, deprecated_member_use
+// ignore_for_file: unused_import, deprecated_member_use, avoid_print
 
 import 'package:emilio/accounts/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,6 +9,7 @@ import "package:emilio/accounts/social.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import "package:emilio/accounts/more.dart";
 import "package:emilio/accounts/login.dart";
+import 'package:firebase_core/firebase_core.dart';
 
 class Register extends StatefulWidget {
   Register({Key? key}) : super(key: key);
@@ -130,6 +131,7 @@ class _RegisterState extends State<Register> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 1, 30, 0),
                 child: TextFormField(
+                  obscureText: true,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
@@ -138,6 +140,7 @@ class _RegisterState extends State<Register> {
                       filled: true,
                       hintStyle: TextStyle(color: Colors.grey[800]),
                       hoverColor: Colors.red,
+                      
                       hintText: "password",
                       fillColor: Colors.grey[200]),
                   controller: password,
@@ -154,18 +157,28 @@ class _RegisterState extends State<Register> {
                   ),
                   child: FlatButton(
                       onPressed: () async {
-                        if (email.text == " " || password.text == " ") {
+                        if (email.text == "") {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text("All fields required"),
+                            content: Text("email required"),
+                            backgroundColor: Colors.red,
+                          ));
+                        } else if (password.text == "") {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("password required"),
                             backgroundColor: Colors.red,
                           ));
                         } else {
-                          User? result =
-                              await Auth().register(email.text, password.text);
+                          User? result = await AuthService()
+                              .register(email.text, password.text);
                           if (result != null) {
                             print("success");
                             print(result.email);
+
                           }
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("Account created "),
+                            backgroundColor: Colors.blue[900],
+                          ));
                         }
                       },
                       shape: RoundedRectangleBorder(
