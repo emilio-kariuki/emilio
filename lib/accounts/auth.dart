@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable, avoid_print
+// ignore_for_file: unused_local_variable, avoid_print, empty_catches
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -28,9 +28,7 @@ class AuthService {
             email: email, password: password);
         return userCredential.user;
       } on FirebaseAuthException catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(e.message.toString()),
-            duration: Duration(milliseconds: 600)));
+        print(e);
       } catch (e) {
         print(e);
       }
