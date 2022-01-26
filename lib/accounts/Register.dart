@@ -1,6 +1,9 @@
-// ignore_for_file: unused_import, deprecated_member_use, avoid_print
+// ignore_for_file: unused_import, deprecated_member_use, avoid_print, avoid_unnecessary_containers
 
+import 'package:emilio/Home.dart';
+import 'package:emilio/Navi.dart';
 import 'package:emilio/accounts/auth.dart';
+import 'package:emilio/settings.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
@@ -21,6 +24,7 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final email = TextEditingController();
   final password = TextEditingController();
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -123,6 +127,7 @@ class _RegisterState extends State<Register> {
                       hintStyle: TextStyle(color: Colors.grey[800]),
                       focusColor: Colors.red,
                       hintText: "Email",
+                      prefixIcon: Icon(Icons.mail,color: Colors.blueGrey[900]),
                       fillColor: Colors.grey[200]),
                   controller: email,
                 ),
@@ -140,64 +145,79 @@ class _RegisterState extends State<Register> {
                       filled: true,
                       hintStyle: TextStyle(color: Colors.grey[800]),
                       hoverColor: Colors.red,
-                      
                       hintText: "password",
+                      prefixIcon: Icon(Icons.lock,color: Colors.blueGrey[900]),
                       fillColor: Colors.grey[200]),
                   controller: password,
                 ),
               ),
               SizedBox(height: 40),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Card(
-                  shadowColor: Colors.green[900],
-                  color: Colors.white,
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: FlatButton(
-                      onPressed: () async {
-                        if (email.text == "") {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text("email required"),
-                            backgroundColor: Colors.red,
-                          ));
-                        } else if (password.text == "") {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text("password required"),
-                            backgroundColor: Colors.red,
-                          ));
-                        } else {
-                          User? result = await AuthService()
-                              .register(email.text, password.text);
-                          if (result != null) {
-                            print("success");
-                            print(result.email);
-
-                          }
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text("Account created "),
-                            backgroundColor: Colors.blue[900],
-                          ));
-                        }
-                      },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                loading
+                    ? CircularProgressIndicator()
+                    : Card(
+                        shadowColor: Colors.green[900],
+                        color: Colors.white,
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: FlatButton(
+                            onPressed: () async {
+                              setState(() {
+                                loading = true;
+                              });
+                              if (email.text == "") {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: Text("email required"),
+                                  backgroundColor: Colors.red,duration: Duration(milliseconds: 500),
+                                ));
+                              } else if (password.text == "") {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: Text("password required"),
+                                  backgroundColor: Colors.red,duration: Duration(milliseconds: 500),
+                                ));
+                              } else {
+                                User? result = await AuthService().register(
+                                    email.text, password.text, context);
+                                if (result != null) {
+                                  print("success");
+                                  print(result.email);
+                                }
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: Text("Account created "),
+                                  backgroundColor: Colors.blue[900],duration: Duration(milliseconds: 500),
+                                ));
+                              }
+                              setState(() {
+                                loading = false;
+                              });
+                              setState(() {
+                                Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (context) => Accounts()));
+                              });
+                            },
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            // icon: Icon(
+                            //   Icons.create,
+                            //   size: 24,
+                            //   color: Colors.black,
+                            // ),
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                              child: Text("Sign Up",
+                                  style: GoogleFonts.robotoCondensed(
+                                      fontSize: 15,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                            )),
                       ),
-                      // icon: Icon(
-                      //   Icons.create,
-                      //   size: 24,
-                      //   color: Colors.black,
-                      // ),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                        child: Text("Sign Up",
-                            style: GoogleFonts.robotoCondensed(
-                                fontSize: 15,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
-                      )),
-                ),
               ]),
               Row(children: [
                 Expanded(
