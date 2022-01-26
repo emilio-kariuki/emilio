@@ -32,6 +32,8 @@ class _ProfileState extends State<Profile> {
     }
   }
 
+  final name = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,12 +91,73 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0,0,0),
-              child: Text("Name",style: GoogleFonts.roboto(fontSize: 30, color: Colors.white)),
+              padding: const EdgeInsets.fromLTRB(18, 0, 0, 0),
+              child: Text("Name",
+                  style: GoogleFonts.roboto(fontSize: 27, color: Colors.white)),
             ),
-            TextFormField(
-              
-            )
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 8, 8, 0),
+              child: TextFormField(
+                controller: name,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    // icon: Icon(Icons.mail,size:30,color: Colors.black),
+                    filled: true,
+                    prefixIcon: Icon(Icons.person, color: Colors.blueGrey[900]),
+                    hintStyle: TextStyle(color: Colors.grey[800]),
+                    hoverColor: Colors.red,
+                    hintText: "Name",
+                    fillColor: Colors.grey[200]),
+              ),
+            ),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(18, 0, 0, 0),
+              child: Text("Email",
+                  style: GoogleFonts.roboto(fontSize: 27, color: Colors.white)),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 8, 8, 0),
+              child: TextFormField(
+                controller: name,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    // icon: Icon(Icons.mail,size:30,color: Colors.black),
+                    filled: true,
+                    prefixIcon: Icon(Icons.lock, color: Colors.blueGrey[900]),
+                    hintStyle: TextStyle(color: Colors.grey[800]),
+                    hoverColor: Colors.red,
+                    hintText: "Email",
+                    fillColor: Colors.grey[200]),
+              ),
+            ),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(18, 0, 0, 0),
+              child: Text("Phone",
+                  style: GoogleFonts.roboto(fontSize: 27, color: Colors.white)),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 8, 8, 0),
+              child: TextFormField(
+                controller: name,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    // icon: Icon(Icons.mail,size:30,color: Colors.black),
+                    filled: true,
+                    prefixIcon: Icon(Icons.phone, color: Colors.blueGrey[900]),
+                    hintStyle: TextStyle(color: Colors.grey[800]),
+                    hoverColor: Colors.red,
+                    hintText: "Phone Number",
+                    fillColor: Colors.grey[200]),
+              ),
+            ),
           ],
         ),
       ),
@@ -106,27 +169,27 @@ class _ProfileState extends State<Profile> {
       children: [
         CircleAvatar(
           child: image != null
-                  ? ClipRRect(
-                      borderRadius: BorderRadius.circular(50),
-                      child: Image.file(
-                        image!,
-                        width: 200,
-                        height: 100,
-                        fit: BoxFit.fitHeight,
-                      ),
-                    )
-                  : Container(
-                      decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(50)),
-                      width: 200,
-                      height: 100,
-                      child: Icon(
-                        Icons.camera_alt,
-                        color: Colors.grey[800],
-                      ),
-                    ),
-                    radius: 50,
+              ? ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: Image.file(
+                    image!,
+                    width: 200,
+                    height: 100,
+                    fit: BoxFit.fitHeight,
+                  ),
+                )
+              : Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(50)),
+                  width: 200,
+                  height: 100,
+                  child: Icon(
+                    Icons.camera_alt,
+                    color: Colors.grey[800],
+                  ),
+                ),
+          radius: 50,
         ),
         Positioned(
             bottom: 14,
