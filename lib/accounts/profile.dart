@@ -138,7 +138,7 @@ class _ProfileState extends State<Profile> {
             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.fromLTRB(18, 0, 0, 0),
-              child: Text("Phone",
+              child: Text("Phone Number",
                   style: GoogleFonts.roboto(fontSize: 27, color: Colors.white)),
             ),
             Padding(
