@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "152915277921",
+    "project_id": "ecoville-1b1d1",
+    "storage_bucket": "ecoville-1b1d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152915277921:android:fdcb73d9cf12dd9bf7d220",
+        "android_client_info": {
+          "package_name": "com.emilio.Ecoville"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152915277921-kbqt96ejd4490j61l8m7sb4ifnvd59vf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvT4sVh9epwvdwqoVXYnFIX_ljXQa_S_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152915277921-kbqt96ejd4490j61l8m7sb4ifnvd59vf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
