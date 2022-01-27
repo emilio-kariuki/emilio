@@ -1,3 +1,6 @@
+import 'dart:js';
+
+import 'package:emilio/position/Post.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -8,7 +11,11 @@ void main() async {
   await Firebase.initializeApp();
   runApp(
     MaterialApp(
-      home: Navi(),
+      initialRoute: '/navi',
+      routes: {
+        '/navi' : (context) => Navi(),
+        '/post' : (context)=> Post(),
+      },
       debugShowCheckedModeBanner: false,
     ),
   );

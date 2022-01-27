@@ -1,24 +1,24 @@
-// ignore_for_file: unused_import
+// ignore_for_file: prefer_collection_literals, unnecessary_new
+
+import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'dart:async';
-import 'position/Post.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:emilio/position/post.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+import '../Home.dart';
+
+class Point extends StatefulWidget {
+  Point(void locatePosition, {Key? key}) : super(key: key);
 
   @override
-  // ignore: no_logic_in_create_state
-  HomeState createState() => HomeState();
+  State<Point> createState() => _PointState();
 }
 
-class HomeState extends State<Home> {
-  // final Post post;
-  // ignore: prefer_final_fields
+class _PointState extends State<Point> {
   Completer<GoogleMapController> _controller = Completer();
   GoogleMapController? newGoogleMapController;
 
@@ -67,9 +67,9 @@ class HomeState extends State<Home> {
         myLocationButtonEnabled: true,
         zoomGesturesEnabled: true,
         zoomControlsEnabled: false,
-        onMapCreated: (GoogleMapController controller) {
+        onMapCreated: (GoogleMapController controller) async {
           _controller.complete(controller);
-          locatePosition();
+          goToTheLake();
         },
         //  is a gesture recognizer that eagerly claims victory in all gesture arenas
       ),
@@ -82,7 +82,7 @@ class HomeState extends State<Home> {
   }
 
   // ignore: unused_element
-  Future<void> _goToTheLake() async {
+  Future<void> goToTheLake() async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(product));
   }

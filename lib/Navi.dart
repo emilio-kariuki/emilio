@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'settings.dart';
-import 'Post.dart';
+import 'position/Post.dart';
 import 'Home.dart';
 import 'item.dart';
 
