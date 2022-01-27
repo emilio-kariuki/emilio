@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use, avoid_print, prefer_final_fields, unused_import, unused_label, dead_code
+// ignore_for_file: deprecated_member_use, avoid_print, prefer_final_fields, unused_import, unused_label, dead_code, unnecessary_import
 
 import 'dart:async';
 
@@ -54,31 +54,7 @@ class _PostState extends State<Post> {
         backgroundColor: Colors.blueGrey[800],
         body: Column(
           children: [
-            Center(
-              child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  color: Colors.purple,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 1, 30, 1),
-                    child: FlatButton(
-                        onPressed: () {
-                          setState(() {
-                            Navigator.of(context).push(
-                                MaterialPageRoute(builder: (context) => Point()));
-                          });
-                          // Navigator.of(context).push(
-                          //     MaterialPageRoute(builder: (context) => Home()));
-                        },
-                        color: Colors.purple,
-                        child: Text("Get location")),
-                  )),
-            ),
-            FloatingActionButton(
-              backgroundColor: Colors.indigo[800],
-              onPressed: (){
-              },
-              child: Icon(Icons.add,size:30,color: Colors.white),),
+            
           ],
         ));
 
