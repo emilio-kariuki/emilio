@@ -1,6 +1,7 @@
 import 'dart:js';
 
 import 'package:emilio/position/Post.dart';
+import 'package:emilio/position/position.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -14,7 +15,7 @@ void main() async {
       initialRoute: '/navi',
       routes: {
         '/navi' : (context) => Navi(),
-        '/post' : (context)=> Post(),
+        '/post' : (context)=> Point(),
       },
       debugShowCheckedModeBanner: false,
     ),

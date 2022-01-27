@@ -63,7 +63,7 @@ class _PostState extends State<Post> {
                     onPressed: () {
                       setState(() {
                         Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Point(locatePosition())));
+                            MaterialPageRoute(builder: (context) => Point()));
                       });
                       // Navigator.of(context).push(
                       //     MaterialPageRoute(builder: (context) => Home()));
