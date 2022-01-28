@@ -212,15 +212,21 @@ class _PostState extends State<Post> {
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
-                    child: SizedBox(
-                      height: size.height * 0.25,
-                      width: size.width,
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        color: Colors.white,
+                    child: Stack(
+                      children: [
+                        SizedBox(
+                        height: size.height * 0.25,
+                        width: size.width,
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
+                      Positioned(
+                        child: IconButton(onPressed: (){}, icon: Icon(Icons.camera_alt_rounded)),)
+                      ]
+                      ),
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(4, 4, 0, 0),
