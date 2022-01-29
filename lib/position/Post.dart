@@ -81,10 +81,11 @@ class _PostState extends State<Post> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height:5),
                   Center(
                     child: SvgPicture.asset(
                       "assets/svg/login.svg",
-                      height: size.height * 0.09,
+                      height: size.height * 0.12,
                     ),
                   ),
                   Row(
@@ -224,6 +225,8 @@ class _PostState extends State<Post> {
                         ),
                       ),
                       Positioned(
+                        bottom: 80,
+                        right: 150,
                         child: IconButton(onPressed: (){}, icon: Icon(Icons.camera_alt_rounded)),)
                       ]
                       ),
@@ -266,7 +269,34 @@ class _PostState extends State<Post> {
                       ],
                     ),
                   ),
-                  
+                  SizedBox(height: 20),
+                  Center(
+                    child: Card(
+                      shadowColor: Colors.green[900],
+                      color: Colors.white,
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: FlatButton.icon(
+                            onPressed: () {
+                              setState(() {
+                                Navigator.pop(context);
+                              });
+                            },
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            icon: Icon(
+                              Icons.skip_previous_rounded,
+                              size: 31,
+                              color: Colors.black,
+                            ),
+                            label: Text("Back",
+                                style: GoogleFonts.robotoCondensed(
+                                    fontSize: 15, color: Colors.black))),
+                    ),
+                  ),
 
                 ],
               ),
