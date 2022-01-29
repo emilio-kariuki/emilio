@@ -247,7 +247,7 @@ class _PostState extends State<Post> {
                     image!,
                     width: 200,
                     height: 100,
-                    fit: BoxFit.fitHeight,
+                    fit: BoxFit.cover,
                   ),
                 )
               : Container(
