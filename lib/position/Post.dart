@@ -236,7 +236,37 @@ class _PostState extends State<Post> {
                             color: Colors.white,
                             fontWeight: FontWeight.bold)),
                   ),
-                  buildCheckBox(),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            buildCheckBox(),
+                            Text("High",style: GoogleFonts.roboto(fontSize: 20,color: Colors.white))
+                          ],
+                        ),
+                        SizedBox(width:70),
+                        Column(
+                          children: [
+                            buildCheckBox(),
+                            Text("Medium",style: GoogleFonts.roboto(fontSize: 20,color: Colors.white))
+                          ],
+                        ),
+                        SizedBox(width:70),
+                        Column(
+                          children: [
+                            buildCheckBox(),
+                            Text("Low",style: GoogleFonts.roboto(fontSize: 20,color: Colors.white))
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+
                 ],
               ),
             ),
@@ -246,6 +276,8 @@ class _PostState extends State<Post> {
 
   Widget buildCheckBox() => Checkbox(
       value: value,
+      activeColor: Colors.white,
+      checkColor: Colors.blueGrey[900],
       onChanged: (value) {
         setState(() {
           this.value = value!;
