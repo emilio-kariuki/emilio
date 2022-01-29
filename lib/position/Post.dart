@@ -237,7 +237,7 @@ class _PostState extends State<Post> {
                             fontWeight: FontWeight.bold)),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+                    padding: const EdgeInsets.fromLTRB(15, 0, 4, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -266,6 +266,7 @@ class _PostState extends State<Post> {
                       ],
                     ),
                   ),
+                  
 
                 ],
               ),
