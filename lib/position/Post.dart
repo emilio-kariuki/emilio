@@ -227,7 +227,11 @@ class _PostState extends State<Post> {
                       Positioned(
                         bottom: 80,
                         right: 150,
-                        child: IconButton(onPressed: (){}, icon: Icon(Icons.camera_alt_rounded)),)
+                        child: IconButton(
+                          onPressed: (){
+                            
+                          }, 
+                          icon: Icon(Icons.camera_alt_rounded)),)
                       ]
                       ),
                   ),
