@@ -8,6 +8,9 @@ import 'package:geolocator/geolocator.dart';
 import 'dart:async';
 import 'position/Post.dart';
 
+double? lat;
+double? long;
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -33,6 +36,8 @@ class HomeState extends State<Home> {
     currentPosition = position;
 
     LatLng ltPosition = LatLng(position.latitude, position.longitude);
+    lat = position.latitude;
+    long = position.longitude;
     print(ltPosition);
 
     CameraPosition cameraPosition =
@@ -57,9 +62,10 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GoogleMap(
+        // ignore: prefer_collection_literals
         gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>[
-          new Factory<OneSequenceGestureRecognizer>(
-            () => new EagerGestureRecognizer(),
+          Factory<OneSequenceGestureRecognizer>(
+            () => EagerGestureRecognizer(),
           ),
         ].toSet(),
         mapType: MapType.hybrid,

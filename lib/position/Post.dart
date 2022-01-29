@@ -40,6 +40,7 @@ class _PostState extends State<Post> {
       print("Failed to pick image $e");
     }
   }
+
   bool value = false;
   GoogleMapController? newGoogleMapController;
   Completer<GoogleMapController> _controller = Completer();
@@ -69,6 +70,8 @@ class _PostState extends State<Post> {
     zoom: 14.4746,
   );
   final name = TextEditingController();
+  final category = TextEditingController();
+
   // bool valuep = false;
   // void _onRememberMeChanged(bool newValue) => setState(() {
   //       value = newValue;
@@ -99,7 +102,7 @@ class _PostState extends State<Post> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height:5),
+                  SizedBox(height: 5),
                   Center(
                     child: SvgPicture.asset(
                       "assets/svg/login.svg",
@@ -154,7 +157,7 @@ class _PostState extends State<Post> {
                             width: 170,
                             child: TextFormField(
                               autocorrect: true,
-                              controller: name,
+                              controller: category,
                               decoration: InputDecoration(
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15.0),
@@ -198,7 +201,7 @@ class _PostState extends State<Post> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
                                   child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: locatePosition,
                                     child: Text("Push",
                                         style: GoogleFonts.roboto(
                                             fontSize: 20,
@@ -231,9 +234,8 @@ class _PostState extends State<Post> {
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
-                    child: Stack(
-                      children: [
-                        SizedBox(
+                    child: Stack(children: [
+                      SizedBox(
                         height: size.height * 0.25,
                         width: size.width,
                         child: Card(
@@ -241,40 +243,44 @@ class _PostState extends State<Post> {
                               borderRadius: BorderRadius.circular(20)),
                           color: Colors.white,
                           child: image != null
-              ? ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
-                  child: Image.file(
-                    image!,
-                    width: 200,
-                    height: 100,
-                    fit: BoxFit.cover,
-                  ),
-                )
-              : Container(
-                  decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(50)),
-                  width: 200,
-                  height: 100,
-                  child: Icon(
-                    Icons.camera_alt,
-                    color: Colors.grey[800],
-                  ),
-                ),
+                              ? ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.file(
+                                    image!,
+                                    width: 200,
+                                    height: 100,
+                                    fit: BoxFit.cover,
+                                  ),
+                                )
+                              : Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey[200],
+                                      borderRadius: BorderRadius.circular(50)),
+                                  width: 200,
+                                  height: 100,
+                                  child: Icon(
+                                    Icons.camera_alt,
+                                    color: Colors.grey[800],
+                                  ),
+                                ),
                         ),
                       ),
                       Positioned(
                         bottom: 80,
                         right: 150,
                         child: IconButton(
-                          onPressed: (){
-                            showModalBottomSheet(
-                              context: (context),
-                              builder: ((builder) => bottomSheet(context)));
-                          },
-                          icon: Icon(Icons.camera_alt_rounded,size: 30,color: Colors.blueGrey[800],)),)
-                      ]
-                      ),
+                            onPressed: () {
+                              showModalBottomSheet(
+                                  context: (context),
+                                  builder: ((builder) => bottomSheet(context)));
+                            },
+                            icon: Icon(
+                              Icons.camera_alt_rounded,
+                              size: 30,
+                              color: Colors.blueGrey[800],
+                            )),
+                      )
+                    ]),
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(4, 4, 0, 0),
@@ -294,21 +300,27 @@ class _PostState extends State<Post> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             buildCheckBox(),
-                            Text("High",style: GoogleFonts.roboto(fontSize: 20,color: Colors.white))
+                            Text("High",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 20, color: Colors.white))
                           ],
                         ),
-                        SizedBox(width:70),
+                        SizedBox(width: 70),
                         Column(
                           children: [
                             buildCheckBox(),
-                            Text("Medium",style: GoogleFonts.roboto(fontSize: 20,color: Colors.white))
+                            Text("Medium",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 20, color: Colors.white))
                           ],
                         ),
-                        SizedBox(width:70),
+                        SizedBox(width: 70),
                         Column(
                           children: [
                             buildCheckBox(),
-                            Text("Low",style: GoogleFonts.roboto(fontSize: 20,color: Colors.white))
+                            Text("Low",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 20, color: Colors.white))
                           ],
                         ),
                       ],
@@ -321,23 +333,24 @@ class _PostState extends State<Post> {
                       color: Colors.white,
                       elevation: 5,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       child: FlatButton(
-                            onPressed: () {
-                              setState(() {
-                                Navigator.pop(context);
-                              });
-                            },
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Text("Submit",
-                                style: GoogleFonts.robotoCondensed(
-                                    fontSize: 20, color: Colors.black,fontWeight: FontWeight.bold))),
+                          onPressed: () {
+                            setState(() {
+                              Navigator.pop(context);
+                            });
+                          },
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Text("Submit",
+                              style: GoogleFonts.robotoCondensed(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold))),
                     ),
                   ),
-
                 ],
               ),
             ),
@@ -355,7 +368,7 @@ class _PostState extends State<Post> {
         });
       });
 
-    Widget bottomSheet(BuildContext context) {
+  Widget bottomSheet(BuildContext context) {
     return Container(
       height: 100,
       width: MediaQuery.of(context).size.width,
