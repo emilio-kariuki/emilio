@@ -22,6 +22,21 @@ class Post extends StatefulWidget {
 }
 
 class _PostState extends State<Post> {
+  File? image;
+
+  void takePhoto(ImageSource source) async {
+    final image = await ImagePicker().pickImage(source: source);
+    try {
+      if (image == null) return;
+
+      final imageTempo = File(image.path);
+      setState(() {
+        this.image = imageTempo;
+      });
+    } on PlatformException catch (e) {
+      print("Failed to pick image $e");
+    }
+  }
   bool value = false;
   GoogleMapController? newGoogleMapController;
   Completer<GoogleMapController> _controller = Completer();
@@ -229,9 +244,8 @@ class _PostState extends State<Post> {
                         right: 150,
                         child: IconButton(
                           onPressed: (){
-                            
                           }, 
-                          icon: Icon(Icons.camera_alt_rounded)),)
+                          icon: Icon(Icons.camera_alt_rounded,size: 30,color: Colors.blueGrey[800],)),)
                       ]
                       ),
                   ),
@@ -282,7 +296,7 @@ class _PostState extends State<Post> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                       ),
-                      child: FlatButton.icon(
+                      child: FlatButton(
                             onPressed: () {
                               setState(() {
                                 Navigator.pop(context);
@@ -291,14 +305,10 @@ class _PostState extends State<Post> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            icon: Icon(
-                              Icons.skip_previous_rounded,
-                              size: 31,
-                              color: Colors.black,
-                            ),
-                            label: Text("Back",
+                            
+                            child: Text("Submit",
                                 style: GoogleFonts.robotoCondensed(
-                                    fontSize: 15, color: Colors.black))),
+                                    fontSize: 20, color: Colors.black,fontWeight: FontWeight.bold))),
                     ),
                   ),
 
