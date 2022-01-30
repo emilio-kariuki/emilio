@@ -19,7 +19,6 @@ import '../Home.dart';
 // import 'package:geolocator/geolocator.dart';
 double? lat;
 double? long;
-LatLng ?ltPosition;
 
 class Post extends StatefulWidget {
   Post({Key? key}) : super(key: key);
@@ -52,7 +51,6 @@ class _PostState extends State<Post> {
 
   Position? currentPosition;
   var geoLocator = Geolocator();
-  
 
   void locatePosition() async {
     // ignore: unused_local_variable
@@ -61,19 +59,18 @@ class _PostState extends State<Post> {
         desiredAccuracy: LocationAccuracy.high);
     currentPosition = position;
 
-    setState(() {
-      ltPosition = LatLng(position.latitude, position.longitude);
-    });
+    LatLng ltPosition = LatLng(position.latitude, position.longitude);
     print(ltPosition);
     lat = position.latitude;
     long = position.longitude;
     print(lat);
 
-    // CameraPosition cameraPosition =
-    //     CameraPosition(target: ltPosition, zoom: 15);
-    // // ignore: unused_local_variable
-    // newGoogleMapController
-    //     ?.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+    CameraPosition cameraPosition =
+        CameraPosition(target: ltPosition, zoom: 15);
+    // ignore: unused_local_variable
+    newGoogleMapController
+        ?.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+    
   }
 
   final CameraPosition initial = CameraPosition(
@@ -212,16 +209,8 @@ class _PostState extends State<Post> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
                                   child: ElevatedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        GoogleMap(
-                                          // onMapCreated: _onMapCreated,
-                                          initialCameraPosition: CameraPosition(
-                                            target: ltPosition,
-                                            zoom: 10,
-                                          ),
-                                        );
-                                      });
+                                    onPressed: {
+
                                     },
                                     child: Text("Push",
                                         style: GoogleFonts.roboto(
