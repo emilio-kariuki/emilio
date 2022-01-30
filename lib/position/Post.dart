@@ -292,7 +292,7 @@ class _PostState extends State<Post> {
                             fontWeight: FontWeight.bold)),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 4, 0),
+                    padding: const EdgeInsets.fromLTRB(15, 5, 4, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -301,8 +301,9 @@ class _PostState extends State<Post> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Radio(
+                              activeColor: Colors.white,
                               groupValue: quantityValue,
-                              value: "Medium",
+                              value: "High",
                               onChanged: (value) {
                                 setState(() {
                                   quantityValue = value.toString();
@@ -318,6 +319,7 @@ class _PostState extends State<Post> {
                         Column(
                           children: [
                             Radio(
+                              activeColor: Colors.white,
                               groupValue: quantityValue,
                               value: "Medium",
                               onChanged: (value) {
@@ -335,6 +337,7 @@ class _PostState extends State<Post> {
                         Column(
                           children: [
                             Radio(
+                              activeColor: Colors.white,
                               groupValue: quantityValue,
                               value: "Low",
                               onChanged: (value) {
