@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use, avoid_print, prefer_final_fields, unused_import, unused_label, dead_code, unnecessary_import, nullable_type_in_catch_clause, unused_field, await_only_futures
+// ignore_for_file: deprecated_member_use, avoid_print, prefer_final_fields, unused_import, unused_label, dead_code, unnecessary_import, nullable_type_in_catch_clause, unused_field
 
 import 'dart:async';
 import 'dart:io';
@@ -210,18 +210,7 @@ class _PostState extends State<Post> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
                                   child: ElevatedButton(
-                                    onPressed: () { 
-                                      setState(() async{
-                                        await GoogleMap(
-                                      mapType: MapType.normal,
-                                       initialCameraPosition: CameraPosition(target: LatLng(lat,long)),
-                                      onMapCreated: (GoogleMapController controller) {
-                                        _controller.complete(controller);
-                                      },
-                                    );
-                                      });
-                                    },
-
+                                    onPressed: () {},
                                     child: Text("Push",
                                         style: GoogleFonts.roboto(
                                             fontSize: 20,
