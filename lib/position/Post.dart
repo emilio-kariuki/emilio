@@ -26,6 +26,7 @@ class Post extends StatefulWidget {
 
 class _PostState extends State<Post> {
   File? image;
+  String quantityvalue = "high";
 
   void takePhoto(ImageSource source) async {
     final image = await ImagePicker().pickImage(source: source);
@@ -358,15 +359,8 @@ class _PostState extends State<Post> {
         ));
   }
 
-  Widget buildCheckBox() => Checkbox(
-      value: value,
-      activeColor: Colors.white,
-      checkColor: Colors.blueGrey[900],
-      onChanged: (value) {
-        setState(() {
-          this.value = value!;
-        });
-      });
+  Widget buildRadioButton() =>
+      Radio(value: 0, groupValue: quantityValue, onChanged: () {});
 
   Widget bottomSheet(BuildContext context) {
     return Container(
