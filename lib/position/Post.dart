@@ -208,7 +208,24 @@ class _PostState extends State<Post> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
                                   child: ElevatedButton(
-                                    onPressed: locatePosition,
+                                    onPressed: () {
+                                      setState(() async{
+                                        LocationPermission permission = await Geolocator.requestPermission();
+                                            Position position = await Geolocator.getCurrentPosition(
+                                                desiredAccuracy: LocationAccuracy.high);
+                                            currentPosition = position;
+
+                                            LatLng ltPosition = LatLng(position.latitude, position.longitude);
+                                        GoogleMap(
+                                          // onMapCreated: _onMapCreated,
+                                          initialCameraPosition: CameraPosition(
+
+                                            target: ltPosition,
+                                            zoom: 10,
+                                          ),
+                                        );
+                                      });
+                                    },
                                     child: Text("Push",
                                         style: GoogleFonts.roboto(
                                             fontSize: 20,
