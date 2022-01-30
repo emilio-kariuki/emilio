@@ -305,7 +305,7 @@ class _PostState extends State<Post> {
                               value: "Medium",
                               onChanged: (value) {
                                 setState(() {
-                                  quantityValue = value;
+                                  quantityValue = value.toString();
                                 });
                               },
                             ),
@@ -322,7 +322,7 @@ class _PostState extends State<Post> {
                               value: "Medium",
                               onChanged: (value) {
                                 setState(() {
-                                  quantityValue = value;
+                                  quantityValue = value.toString();
                                 });
                               },
                             ),
@@ -334,7 +334,15 @@ class _PostState extends State<Post> {
                         SizedBox(width: 70),
                         Column(
                           children: [
-                            buildCheckBox(),
+                            Radio(
+                              groupValue: quantityValue,
+                              value: "Low",
+                              onChanged: (value) {
+                                setState(() {
+                                  quantityValue = value.toString();
+                                });
+                              },
+                            ),
                             Text("Low",
                                 style: GoogleFonts.roboto(
                                     fontSize: 20, color: Colors.white))
