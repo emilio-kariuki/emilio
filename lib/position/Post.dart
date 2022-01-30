@@ -26,7 +26,7 @@ class Post extends StatefulWidget {
 
 class _PostState extends State<Post> {
   File? image;
-  String quantityvalue = "high";
+  String quantityValue = "high";
 
   void takePhoto(ImageSource source) async {
     final image = await ImagePicker().pickImage(source: source);
@@ -300,7 +300,15 @@ class _PostState extends State<Post> {
                         Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            buildCheckBox(),
+                            Radio(
+                              groupValue: quantityValue,
+                              value: "Medium",
+                              onChanged: (value) {
+                                setState(() {
+                                  quantityValue = value;
+                                });
+                              },
+                            ),
                             Text("High",
                                 style: GoogleFonts.roboto(
                                     fontSize: 20, color: Colors.white))
@@ -309,7 +317,15 @@ class _PostState extends State<Post> {
                         SizedBox(width: 70),
                         Column(
                           children: [
-                            buildCheckBox(),
+                            Radio(
+                              groupValue: quantityValue,
+                              value: "Medium",
+                              onChanged: (value) {
+                                setState(() {
+                                  quantityValue = value;
+                                });
+                              },
+                            ),
                             Text("Medium",
                                 style: GoogleFonts.roboto(
                                     fontSize: 20, color: Colors.white))
@@ -358,9 +374,6 @@ class _PostState extends State<Post> {
           ),
         ));
   }
-
-  Widget buildRadioButton() =>
-      Radio(value: 0, groupValue: quantityValue, onChanged: () {});
 
   Widget bottomSheet(BuildContext context) {
     return Container(
