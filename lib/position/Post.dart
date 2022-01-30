@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use, avoid_print, prefer_final_fields, unused_import, unused_label, dead_code, unnecessary_import, nullable_type_in_catch_clause
+// ignore_for_file: deprecated_member_use, avoid_print, prefer_final_fields, unused_import, unused_label, dead_code, unnecessary_import, nullable_type_in_catch_clause, unused_field
 
 import 'dart:async';
 import 'dart:io';
@@ -15,7 +15,10 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../Home.dart';
+
 // import 'package:geolocator/geolocator.dart';
+double? lat;
+double? long;
 
 class Post extends StatefulWidget {
   Post({Key? key}) : super(key: key);
@@ -58,6 +61,9 @@ class _PostState extends State<Post> {
 
     LatLng ltPosition = LatLng(position.latitude, position.longitude);
     print(ltPosition);
+    lat = position.latitude;
+    long = position.longitude;
+    print(lat);
 
     CameraPosition cameraPosition =
         CameraPosition(target: ltPosition, zoom: 15);

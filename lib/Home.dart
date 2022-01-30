@@ -91,5 +91,8 @@ class HomeState extends State<Home> {
   Future<void> _goToTheLake() async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(product));
+  Future<void> _goToPosition() async {
+  final GoogleMapController? controller = await newGoogleMapController;
+  controller.animateCamera(CameraUpdate.newCameraPosition(product));
   }
 }
