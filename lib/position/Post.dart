@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use, avoid_print, prefer_final_fields, unused_import, unused_label, dead_code, unnecessary_import, nullable_type_in_catch_clause, unused_field
+// ignore_for_file: deprecated_member_use, avoid_print, prefer_final_fields, unused_import, unused_label, dead_code, unnecessary_import, nullable_type_in_catch_clause, unused_field, await_only_futures
 
 import 'dart:async';
 import 'dart:io';
@@ -17,8 +17,6 @@ import 'package:image_picker/image_picker.dart';
 import '../Home.dart';
 
 // import 'package:geolocator/geolocator.dart';
-double? lat;
-double? long;
 
 class Post extends StatefulWidget {
   Post({Key? key}) : super(key: key);
@@ -28,6 +26,9 @@ class Post extends StatefulWidget {
 }
 
 class _PostState extends State<Post> {
+  double lat=0;
+  double long=0;
+
   File? image;
   String quantityValue = "high";
 
@@ -209,9 +210,18 @@ class _PostState extends State<Post> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
                                   child: ElevatedButton(
-                                    onPressed: {
-
+                                    onPressed: () { 
+                                      setState(() async{
+                                        await GoogleMap(
+                                      mapType: MapType.normal,
+                                       initialCameraPosition: CameraPosition(target: LatLng(lat,long)),
+                                      onMapCreated: (GoogleMapController controller) {
+                                        _controller.complete(controller);
+                                      },
+                                    );
+                                      });
                                     },
+
                                     child: Text("Push",
                                         style: GoogleFonts.roboto(
                                             fontSize: 20,
