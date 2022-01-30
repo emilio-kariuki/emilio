@@ -309,7 +309,7 @@ class _PostState extends State<Post> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Transform.scale(
-                              scale: 1.5,
+                              scale: 1.2,
                               child: Radio(
                                 activeColor: Colors.white,
                                 groupValue: quantityValue,
@@ -330,7 +330,7 @@ class _PostState extends State<Post> {
                         Column(
                           children: [
                             Transform.scale(
-                              scale: 1.5,
+                              scale: 1.2,
                               child: Radio(
                                 activeColor: Colors.white,
                                 groupValue: quantityValue,
@@ -351,7 +351,7 @@ class _PostState extends State<Post> {
                         Column(
                           children: [
                             Transform.scale(
-                              scale: 1.5,
+                              scale: 1.2,
                               child: Radio(
                                 activeColor: Colors.white,
                                 groupValue: quantityValue,
