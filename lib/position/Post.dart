@@ -300,15 +300,18 @@ class _PostState extends State<Post> {
                         Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Radio(
-                              activeColor: Colors.white,
-                              groupValue: quantityValue,
-                              value: "High",
-                              onChanged: (value) {
-                                setState(() {
-                                  quantityValue = value.toString();
-                                });
-                              },
+                            Transform.scale(
+                              scale: 1.5,
+                              child: Radio(
+                                activeColor: Colors.white,
+                                groupValue: quantityValue,
+                                value: "High",
+                                onChanged: (value) {
+                                  setState(() {
+                                    quantityValue = value.toString();
+                                  });
+                                },
+                              ),
                             ),
                             Text("High",
                                 style: GoogleFonts.roboto(
@@ -318,15 +321,18 @@ class _PostState extends State<Post> {
                         SizedBox(width: 70),
                         Column(
                           children: [
-                            Radio(
-                              activeColor: Colors.white,
-                              groupValue: quantityValue,
-                              value: "Medium",
-                              onChanged: (value) {
-                                setState(() {
-                                  quantityValue = value.toString();
-                                });
-                              },
+                            Transform.scale(
+                              scale: 1.5,
+                              child: Radio(
+                                activeColor: Colors.white,
+                                groupValue: quantityValue,
+                                value: "Medium",
+                                onChanged: (value) {
+                                  setState(() {
+                                    quantityValue = value.toString();
+                                  });
+                                },
+                              ),
                             ),
                             Text("Medium",
                                 style: GoogleFonts.roboto(
@@ -336,15 +342,18 @@ class _PostState extends State<Post> {
                         SizedBox(width: 70),
                         Column(
                           children: [
-                            Radio(
-                              activeColor: Colors.white,
-                              groupValue: quantityValue,
-                              value: "Low",
-                              onChanged: (value) {
-                                setState(() {
-                                  quantityValue = value.toString();
-                                });
-                              },
+                            Transform.scale(
+                              scale: 1.5,
+                              child: Radio(
+                                activeColor: Colors.white,
+                                groupValue: quantityValue,
+                                value: "Low",
+                                onChanged: (value) {
+                                  setState(() {
+                                    quantityValue = value.toString();
+                                  });
+                                },
+                              ),
                             ),
                             Text("Low",
                                 style: GoogleFonts.roboto(
