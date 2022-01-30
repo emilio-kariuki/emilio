@@ -210,7 +210,7 @@ class _PostState extends State<Post> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
                                   child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: locatePosition,
                                     child: Text("Push",
                                         style: GoogleFonts.roboto(
                                             fontSize: 20,
