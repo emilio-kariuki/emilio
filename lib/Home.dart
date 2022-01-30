@@ -38,7 +38,6 @@ class HomeState extends State<Home> {
     LatLng ltPosition = LatLng(position.latitude, position.longitude);
     lat = position.latitude;
     long = position.longitude;
-    print(ltPosition);
 
     CameraPosition cameraPosition =
         CameraPosition(target: ltPosition, zoom: 15);
