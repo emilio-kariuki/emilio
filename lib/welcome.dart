@@ -45,7 +45,7 @@ class _WelcomeState extends State<Welcome> {
           Positioned(
             top: 100,
             right: 200,
-            child: Text("EcoVille", style: GoogleFonts.roboto(fontSize: 30,color: Colors.white)),
+            child: Text("EcoVille", style: GoogleFonts.roboto(fontSize: 40,color: Colors.white)),
             )
         ],
       ),
