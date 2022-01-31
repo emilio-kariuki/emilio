@@ -19,7 +19,7 @@ class _WelcomeState extends State<Welcome> {
             height: mediaQuery.height,
             width: mediaQuery.width,
             child: Image.asset(
-              'assets/images/welcome.jpg',
+              'assets/welcome.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -36,7 +36,7 @@ class _WelcomeState extends State<Welcome> {
               child: CircleAvatar(
                 backgroundColor: Colors.blueGrey[800],
                 child: Icon(Icons.arrow_right,
-                    color: Colors.white, size: mediaQuery.width * 0.03),
+                    color: Colors.white, size: mediaQuery.width * 0.13),
                 radius: 30,
               ),
             ),
