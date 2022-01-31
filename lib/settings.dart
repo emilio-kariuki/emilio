@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:emilio/accounts/help.dart';
@@ -16,6 +17,11 @@ class Accounts extends StatefulWidget {
 }
 
 class _AccountsState extends State<Accounts> {
+  FirebaseAuth auth = FirebaseAuth.instance;
+  Future<void> signOut() async {
+    await auth.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,9 +141,7 @@ class _AccountsState extends State<Accounts> {
                         borderRadius: BorderRadius.circular(20)),
                     elevation: 4,
                     child: ListTile(
-                      onTap: (){
-                        
-                      },
+                      onTap: () async {},
                       leading: Icon(Icons.person, color: Colors.blueGrey[800]),
                       title: Text(
                         "Log Out",
