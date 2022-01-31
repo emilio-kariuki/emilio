@@ -6,6 +6,7 @@ import 'package:emilio/accounts/help.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:emilio/accounts/Register.dart';
 import 'package:emilio/accounts/profile.dart';
+import 'package:emilio/accounts/auth.dart';
 
 class Accounts extends StatefulWidget {
   Accounts({Key? key}) : super(key: key);
@@ -134,6 +135,7 @@ class _AccountsState extends State<Accounts> {
                         borderRadius: BorderRadius.circular(20)),
                     elevation: 4,
                     child: ListTile(
+                      onTap: (){},
                       leading: Icon(Icons.person, color: Colors.blueGrey[800]),
                       title: Text(
                         "Log Out",
