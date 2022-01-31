@@ -142,7 +142,7 @@ class _AccountsState extends State<Accounts> {
                         borderRadius: BorderRadius.circular(20)),
                     elevation: 4,
                     child: ListTile(
-                      onTap: () async {
+                      onTap: ()async {
                         await signOut();
                         Navigator.of(context)
                             .pushReplacement(MaterialPageRoute(
