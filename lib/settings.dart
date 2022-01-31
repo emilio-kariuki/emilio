@@ -135,7 +135,9 @@ class _AccountsState extends State<Accounts> {
                         borderRadius: BorderRadius.circular(20)),
                     elevation: 4,
                     child: ListTile(
-                      onTap: (){},
+                      onTap: (){
+                        
+                      },
                       leading: Icon(Icons.person, color: Colors.blueGrey[800]),
                       title: Text(
                         "Log Out",
