@@ -1,5 +1,6 @@
 import 'package:emilio/Navi.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Welcome extends StatefulWidget {
   Welcome({Key? key}) : super(key: key);
@@ -42,7 +43,9 @@ class _WelcomeState extends State<Welcome> {
             ),
           ),
           Positioned(
-            child: Text("")
+            top: 100,
+            right: 200,
+            child: Text("EcoVille", style: GoogleFonts.roboto(fontSize: 30,color: Colors.white)),
             )
         ],
       ),
