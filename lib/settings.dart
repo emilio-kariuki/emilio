@@ -1,5 +1,6 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, unused_import
 
+import 'package:emilio/Navi.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -141,7 +142,12 @@ class _AccountsState extends State<Accounts> {
                         borderRadius: BorderRadius.circular(20)),
                     elevation: 4,
                     child: ListTile(
-                      onTap: () async {},
+                      onTap: () async {
+                        await signOut();
+                        Navigator.of(context)
+                            .pushReplacement(MaterialPageRoute(
+                                        builder: (context) => Navi()));
+                      },
                       leading: Icon(Icons.person, color: Colors.blueGrey[800]),
                       title: Text(
                         "Log Out",
