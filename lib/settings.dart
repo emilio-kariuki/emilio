@@ -150,7 +150,7 @@ class _AccountsState extends State<Accounts> {
                                         builder: (context) => Login()));
                         ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                        content: Text("Logged out successfuly"),
+                                        content:   Text("Logged out successfuly"),
                                         duration: Duration(milliseconds: 500),
                                         backgroundColor: Colors.red));
                       },
