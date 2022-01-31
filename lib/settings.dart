@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, unused_import
 
 import 'package:emilio/Navi.dart';
+import 'package:emilio/accounts/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -146,7 +147,12 @@ class _AccountsState extends State<Accounts> {
                         await signOut();
                         Navigator.of(context)
                             .pushReplacement(MaterialPageRoute(
-                                        builder: (context) => Navi()));
+                                        builder: (context) => Login()));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text("Logged out successfuly"),
+                                        duration: Duration(milliseconds: 500),
+                                        backgroundColor: Colors.red));
                       },
                       leading: Icon(Icons.person, color: Colors.blueGrey[800]),
                       title: Text(
