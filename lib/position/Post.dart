@@ -30,7 +30,7 @@ class _PostState extends State<Post> {
   double long=0;
 
   File? image;
-  String quantityValue = "high";
+  String quantityValue = "highie";
 
   void takePhoto(ImageSource source) async {
     final image = await ImagePicker().pickImage(source: source);
