@@ -89,7 +89,7 @@ class _AccountsState extends State<Accounts> {
                     elevation: 4,
                     child: ListTile(
                       leading: Icon(Icons.person, color: Colors.blueGrey[800]),
-                      title: Text("Acsounts",
+                      title: Text("Account",
                           style: GoogleFonts.roboto(fontSize: 20)),
                     ),
                   ),
