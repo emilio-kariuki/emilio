@@ -40,7 +40,10 @@ class _WelcomeState extends State<Welcome> {
                 radius: 30,
               ),
             ),
-          )
+          ),
+          Positioned(
+            child: Text("")
+            )
         ],
       ),
     );
