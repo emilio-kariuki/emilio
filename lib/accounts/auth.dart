@@ -34,6 +34,10 @@ class AuthService {
       }
     }
 
+    void _signOut() {
+      FirebaseAuth.instance.signOut();
+    }
+
     //login user
     // Future<User?> login(String email, String password){
 
