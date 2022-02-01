@@ -1,3 +1,4 @@
+import 'package:emilio/Constants/constants.dart';
 import "package:flutter/material.dart";
 import 'settings.dart';
 import 'position/Post.dart';
@@ -42,7 +43,7 @@ class _NaviState extends State<Navi> {
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.black,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.blueGrey[800],
+        backgroundColor: kprimaryColor,
         currentIndex: selectedIndex,
         onTap: (newIndex) {
           setState(() {
