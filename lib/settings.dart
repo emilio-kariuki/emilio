@@ -75,7 +75,7 @@ class _AccountsState extends State<Accounts> {
                       // ignore: unnecessary_new
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: kaccentColor,
+                          color: kprimaryColor,
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(20))
                       ),
