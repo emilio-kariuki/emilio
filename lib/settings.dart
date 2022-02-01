@@ -1,5 +1,6 @@
 // ignore_for_file: file_names, unused_import
 
+import 'package:emilio/Constants/constants.dart';
 import 'package:emilio/Navi.dart';
 import 'package:emilio/accounts/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,7 +28,7 @@ class _AccountsState extends State<Accounts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[800],
+      backgroundColor: kprimaryColor,
       body: Column(
         // ignore: prefer_const_literals_to_create_immutables
         children: [
