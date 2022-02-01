@@ -71,14 +71,17 @@ class _AccountsState extends State<Accounts> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     elevation: 4,
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Profile()));
-                      },
-                      leading: Icon(Icons.person, color: Colors.blueGrey[800]),
-                      title: Text("Profile",
-                          style: GoogleFonts.roboto(fontSize: 20)),
+                    child: Container(
+                      
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => Profile()));
+                        },
+                        leading: Icon(Icons.person, color: Colors.blueGrey[800]),
+                        title: Text("Profile",
+                            style: GoogleFonts.roboto(fontSize: 20)),
+                      ),
                     ),
                   ),
                 ),
