@@ -73,8 +73,11 @@ class _AccountsState extends State<Accounts> {
                     elevation: 4,
                     child: Container(
                       // ignore: unnecessary_new
-                      decoration:  BoxDecoration (
-                      color: Colors.red
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: kaccentColor,
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(20))
                       ),
                       child: ListTile(
                         onTap: () {
