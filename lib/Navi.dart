@@ -43,7 +43,7 @@ class _NaviState extends State<Navi> {
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.black,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: kprimaryColor,
+        backgroundColor: kaccentColor,
         currentIndex: selectedIndex,
         onTap: (newIndex) {
           setState(() {
@@ -60,7 +60,7 @@ class _NaviState extends State<Navi> {
               ),
               label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.layers,color: kaccentColor), label: "Item"),
+              icon: Icon(Icons.layers,color: Colors.grey), label: "Item"),
           BottomNavigationBarItem(
               icon: Icon(Icons.upload), label: "Post"),
           // BottomNavigationBarItem(icon: Icon(Icons.layers), label: "Item"),
