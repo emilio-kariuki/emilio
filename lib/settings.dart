@@ -72,8 +72,8 @@ class _AccountsState extends State<Accounts> {
                         borderRadius: BorderRadius.circular(20)),
                     elevation: 4,
                     child: Container(
-
-                      decoration: new BoxDecoration (
+                      // ignore: unnecessary_new
+                      decoration:  BoxDecoration (
                       color: Colors.red
                       ),
                       child: ListTile(
