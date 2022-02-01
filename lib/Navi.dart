@@ -60,7 +60,7 @@ class _NaviState extends State<Navi> {
               ),
               label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.layers), label: "Item"),
+              icon: Icon(Icons.layers,color: kbottonColor), label: "Item"),
           BottomNavigationBarItem(
               icon: Icon(Icons.upload), label: "Post"),
           // BottomNavigationBarItem(icon: Icon(Icons.layers), label: "Item"),
