@@ -21,7 +21,7 @@ class _NaviState extends State<Navi> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Ecoville"),
-        backgroundColor: Colors.blueGrey[800],
+        backgroundColor: kprimaryColor,
       ),
       body: Center(
         child: PageView(
