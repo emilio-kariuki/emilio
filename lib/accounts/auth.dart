@@ -21,6 +21,7 @@ class AuthService {
     } catch (e) {
       print(e);
     }
+      }
 
     Future<User?> login(
         String email, String password, BuildContext context) async {
@@ -40,7 +41,7 @@ class AuthService {
       Future<void> _signOut() async {
     await auth.signOut();
   }
-}
+
 
     //login user
     // Future<User?> login(String email, String password){
